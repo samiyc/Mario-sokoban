@@ -1,0 +1,146 @@
+# depslib dependency file v1.0
+1144535178 c:\documents and settings\mateo21\mes documents\sites\sdz - ecriture\c-c++\tests\kasstet\main.c
+	<stdlib.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+
+1144942866 c:\documents and settings\mateo21\mes documents\sites\sdz - ecriture\c-c++\tests\mario_sokoban\fichiers.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	"constantes.h"
+	"fichiers.h"
+
+1144925066 c:\documents and settings\mateo21\mes documents\sites\sdz - ecriture\c-c++\tests\mario_sokoban\constantes.h
+
+1144672273 c:\documents and settings\mateo21\mes documents\sites\sdz - ecriture\c-c++\tests\mario_sokoban\fichiers.h
+
+1144935714 c:\documents and settings\mateo21\mes documents\sites\sdz - ecriture\c-c++\tests\mario_sokoban\jeu.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	"constantes.h"
+	"jeu.h"
+
+1144779351 c:\documents and settings\mateo21\mes documents\sites\sdz - ecriture\c-c++\tests\mario_sokoban\jeu.h
+
+1144947138 c:\documents and settings\mateo21\mes documents\sites\sdz - ecriture\c-c++\tests\mario_sokoban\editeur.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	"constantes.h"
+	"editeur.h"
+	"fichiers.h"
+
+1144670335 c:\documents and settings\mateo21\mes documents\sites\sdz - ecriture\c-c++\tests\mario_sokoban\editeur.h
+
+1144877284 c:\documents and settings\mateo21\mes documents\sites\sdz - ecriture\c-c++\tests\mario_sokoban\main.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	"constantes.h"
+	"jeu.h"
+	"editeur.h"
+
+1144673342 c:\documents and settings\mateo21\mes documents\sites\sdz - ecriture\c-c++\tests\mario_sokoban\ressources.rc
+
+1218044729 source:c:\users\metal art\desktop\sam\mario_sokoban\fichiers.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL_image.h>
+	<SDL/SDL_ttf.h>
+	"constantes.h"
+	"fichiers.h"
+
+1217869794 c:\users\metal art\desktop\sam\mario_sokoban\constantes.h
+
+1218044629 c:\users\metal art\desktop\sam\mario_sokoban\fichiers.h
+
+1218047854 source:c:\users\metal art\desktop\sam\mario_sokoban\jeu.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL_image.h>
+	<SDL/SDL_ttf.h>
+	"constantes.h"
+	"jeu.h"
+
+1218044980 c:\users\metal art\desktop\sam\mario_sokoban\jeu.h
+
+1218046191 source:c:\users\metal art\desktop\sam\mario_sokoban\main.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL_image.h>
+	<SDL/SDL_ttf.h>
+	"constantes.h"
+	"jeu.h"
+	"editeur.h"
+
+1217774874 c:\users\metal art\desktop\sam\mario_sokoban\editeur.h
+
+1144673344 source:c:\users\metal art\desktop\sam\mario_sokoban\ressources.rc
+
+1218044729 source:c:\users\metal art\desktop\sam\mario_sokoban\editeur.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL_image.h>
+	<SDL/SDL_ttf.h>
+	"constantes.h"
+	"editeur.h"
+	"fichiers.h"
+
+1220799434 source:c:\users\samuel\documents\samuel\code block\mario_sokoban\fichiers.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL_image.h>
+	<SDL/SDL_ttf.h>
+	"constantes.h"
+	"fichiers.h"
+
+1238160587 c:\users\samuel\documents\samuel\code block\mario_sokoban\constantes.h
+
+1218044630 c:\users\samuel\documents\samuel\code block\mario_sokoban\fichiers.h
+
+1221601797 source:c:\users\samuel\documents\samuel\code block\mario_sokoban\jeu.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL_image.h>
+	<SDL/SDL_ttf.h>
+	"constantes.h"
+	"jeu.h"
+
+1218044982 c:\users\samuel\documents\samuel\code block\mario_sokoban\jeu.h
+
+1220644450 source:c:\users\samuel\documents\samuel\code block\mario_sokoban\main.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL_image.h>
+	<SDL/SDL_ttf.h>
+	"constantes.h"
+	"jeu.h"
+	"editeur.h"
+
+1217774876 c:\users\samuel\documents\samuel\code block\mario_sokoban\editeur.h
+
+1244831154 source:c:\users\samuel\documents\samuel\code block\mario_sokoban\ressources.rc
+
+1220645439 source:c:\users\samuel\documents\samuel\code block\mario_sokoban\editeur.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	<SDL_image.h>
+	<SDL/SDL_ttf.h>
+	"constantes.h"
+	"editeur.h"
+	"fichiers.h"
+

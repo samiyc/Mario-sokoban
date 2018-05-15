@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="All" />
+	<File name="constantes.h" open="0" top="0" tabpos="2">
+		<Cursor position="512" topLine="0" />
+	</File>
+	<File name="editeur.c" open="0" top="0" tabpos="1">
+		<Cursor position="321" topLine="0" />
+	</File>
+	<File name="editeur.h" open="0" top="0" tabpos="8">
+		<Cursor position="266" topLine="0" />
+	</File>
+	<File name="fichiers.c" open="0" top="0" tabpos="4">
+		<Cursor position="1321" topLine="70" />
+	</File>
+	<File name="fichiers.h" open="0" top="0" tabpos="7">
+		<Cursor position="280" topLine="0" />
+	</File>
+	<File name="jeu.c" open="0" top="0" tabpos="1">
+		<Cursor position="2735" topLine="67" />
+	</File>
+	<File name="jeu.h" open="0" top="0" tabpos="6">
+		<Cursor position="467" topLine="0" />
+	</File>
+	<File name="main.c" open="0" top="0" tabpos="1">
+		<Cursor position="3740" topLine="56" />
+	</File>
+	<File name="ressources.rc" open="0" top="0" tabpos="0">
+		<Cursor position="2" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>

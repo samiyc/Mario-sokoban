@@ -1,0 +1,216 @@
+Chapter 1 - Simple usage:
+In a console window on windows 95/98/NT/2000 type:
+rbox <input file>
+Where the input file contains a map of the Sokoban problem to be solved.
+
+An example: 
+In the file example.txt is the following map:
+###########
+#  #  #  @#
+#   .*$ # #
+#  ##     #
+#     #####
+###########
+Now type:
+rbox example.txt
+and the problem will be solved with a minimum of ball pushes.
+If you want to solve the map with a minimum of steps by the Sokoban man, type:
+rbox -m example.txt
+
+The solution output is given using the symbols u,d,r,l for up, down, right and
+left steps of the Sokoban man. The uppercase letters U,D,R,L are used for ball
+pushes Up, Down, Left and Right.
+
+You may also specify a Sokoban .dat file as input. If you want to solve puzzle
+number four in the screens.dat file you type:
+rbox screens.dat 4
+
+Note that when the program solves with a minimum of ball pushes, it won't care
+how many steps of the Sokoban man it uses, so a lot of the steps will be
+redundant. The same goes for solving with a minimum of steps, then there may
+be a lot of reduntant ball pushes.
+
+Since the program is very dependent on the amount of memory it is allowed to
+use, it very often helps to increase this amount. This is done by adding
+the 'x' option. F.ex. if you want to double the amount to approx 32MB, type:
+rbox -x 20 example.txt
+-x 20 is the next step up because 19 is default. To double again give
+the option -x 21 and so on.
+
+The map in the file is made with the following symbols:
+'#' = Wall,  ' ' = Floor, '.' = Goal for a ball, '$' = Ball, '@' = Sokoban man,
+'*' = Ball in goal and '+' = Man in goal.
+
+To get a feeling of how long it will take to find a solution, the push version
+will need to search a number of unique nodes usually less than two times the
+number of possible box configurations and the move version needs to search a
+number of unique nodes less than the total number of configurations.
+Theese two numbers are output by the program before the search starts.
+While the program is searching, the "Inhash" counter will tell
+you how many unique positions has been searched as long as "Reused" is small.
+If "Reused" increases dramatically it means the hash table is too small and
+it may take a very long time to find the solution.
+
+The program is totally dependent on the hash size. If all unique positions
+searched are less than the number of positions the hash table can store,
+the program is fastest ("Reused" is small). It will also be faster if the
+bucket size is smaller, but this will cause a poorer utilization of the hash
+table. If the number of positions it needs to search is significantly greater
+than what the hash table can store ("Inhash" almost equal to the number of
+positions the hash table can store and "Reused" is increasing rapidly), the
+program will slow down to a crawl, but if you wait long enough it will still
+in principle find the solution.
+
+You can use the program to check if a map has a solution. This is done
+by discovering that the program doesn't find any new nodes as it searches
+deeper i.e. that all possibilities have been tried without finding a solution.
+The test is simply that if "Inhash" and "Reused" don't change after searching
+one level deeper, then no possible solution exist.
+It is better to use the push (default) version for this. For this to work, the
+hash table will have to be big enough for "Reused" to be zero or very small.
+If the program finds that the map has no solution it will stop and in stead of
+the solved message it will output the message:
+***** This map can NOT be solved ! *****
+
+
+
+Chapter 2 - Options:
+If you start the program without parameters, you get the following list:
+Legal options are:
+   -b: Print the board after reading it
+   -c <file>: Compare with board in <file>
+   -d: Print board and quit
+   -f <file>: Give file with 64-bit random values
+   -h: Output all hash size info
+   -i <hval>: Seed random function with hex value <hval>
+   -l <size>: Set bucket size to <size>
+   -m: Solve with a minimum of moves
+   -p <path>: Backsolve solved board to find boards with a maximum number of
+              pushes from the given board. Save the boards to <path>nnnn
+   -q: Don't output progress
+   -s <n>: Try to solve the puzzle starting with ply <n>
+      For option -p, give start level for saving boards
+   -t: Don't output time used
+   -v: Verbose
+   -x <bits>: Set number of bits used for hash index to <bits>
+
+-b will cause the screen to be output after it has been read from the file
+   and normalized (unused floors removed and redundant edges removed)
+-c <file> will compare the normalized version of the screen in <file> with
+   the normalized version of the screen given as an ordinary parameter.
+   The comparison is done also with rotated and mirrored version of the boards
+   and with boards where the Sokoban man has moved with pushing balls.
+-d Will just print the board. This is useful for extracting and normalizing
+   boards f.ex. from a .dat file.
+-f <file> is just for testing of the hash function.
+-h will give you a lot more information of the hash arrays allocated. This may
+   be useful if you try to tune the program to solve a problem most efficiently
+   on your computer.
+-i <hval> is used only to try to see if the program behaves differently with
+   other hash values.
+-l <size> is important if you have a Sokoban problem that the program has
+   difficulties to solve or when you use the -p option to get the program to
+   generate maps. The amount of memory allocated for the hash tables
+   is equal to 2^<hashbits> * <bucket size> so redushing the hashbits by one
+   and doubling the bucket size will cause the same amount of memory to be
+   allocated, but the doubling of the bucket size will cause the program to
+   use the hash table more efficiently, but will also slow down the program.
+   The default value is 4 which will give you good speed, but not a very
+   optimal use of the hash table.
+-m solve the problem with a minimum of moves, not with a minimum of pushes
+   which is the default.
+-p This option is used to create your own maps. See chapter below.
+-q Don't output the running counters, this is useful if you redirect the
+   output of the program to a file.
+-s <n> The program will usually try to solve the problem by doing only one
+   push (or move), then with two pushes (moves) and so on. It is possible to
+   get the program to start searching for a solution with <n> pushes (moves)
+   at once. You may then miss the shortest solution. This option works with
+   the default to solve in a minimum of pushes and with option -m.
+   If this option is used together with thw -p option to generate maps, it
+   will cause all maps found which needs <n> pushes or more to be output to
+   files.
+-t will skip the output of time used
+-v will cause a lot of extra information to be output
+-x <bits> is use to increase (or decrease) the amount of memory used by the
+   hash tables. The default value is 19.
+
+
+
+Chapter 3 - Creating your own maps - option 'p':
+You can create possibly very difficult maps only by specifying the solution
+by using the -p option of the program. An example:
+You make a solved map an put it into a file bsol.txt=
+##############
+###########  #
+#   # @ #    #
+#   #        #
+#   ##*### ###
+## ###*###  ##
+#  **   ##  ##
+#   # # ##   #
+#   #   **   #
+##############
+(Note that all balls are on their goals)
+Then you run the program with the following command:
+rbox -p bsol bsol.txt -x21
+
+The output of the program looks like this:
+>  The hash table can store 8388608 positions, allocating 64 Mbytes for it !
+>  An upper bound for the number of possible box configurations are 1344904 !
+>  An upper bound for the number of possible configurations are 72624816 !
+>  
+>    Time used (Time diff) Pulls  Nodes      Inhash    Reused
+>       66.832      1.594  89     21857132   229348    0
+>  A maximum of 88 pushes can be done from the initial position giving 1 positions !
+>  Clearing last level hash entries !
+>  Cleared 1 entries !
+>  Researching:
+>  Saved 1 boards which can be reached with 88 pushes or more !
+>  Clock: 70379, Time used: 1:10.379
+
+The program found that the maximum number of box pushes to reach this
+solutions is 88 for any possible configuration of the boxes and it has saved
+this map into the file bsol0000.out=
+##############
+###########  #
+#   #   #  $ #
+#   #    $   #
+#   ##.### ###
+##$###.###$ ##
+#  ..   ##@ ##
+#   # #$##   #
+#   # $ ..   #
+##############
+
+You may now check that this map really needs 88 pushes to solve by typing:
+rbox -x 21 bsol0000.out
+
+Note that this option is totally dependent on storing all unique positions
+found into the hash table, so there is a clear limit to the size of the maps
+which can be generated with this option depending on the amount of memory
+in the machine it is run on. The hash usage is the same as for solving maps
+with a minimum of pushes and the hash table therefore shouldn't need to store
+more positions than two times the number of possible box configurations.
+
+The program may find many solutions wich need the same number of pushes to
+solve. It will save them to the name given after the -p option f.ex bsol
+with a four digit number and then ".out" appended. In the example above the
+files will be named bsol0000.out, bsol0001.out, bsol0002.out and so on.
+
+You can try to use this option to recreate a known map.
+Just put all boxes on their targets and the man in an appropriate
+square and start the program with option -p. The program will output the map
+which will need the most pushes to end up with the solution, i.e. the map
+with the greatest "distance" in pushes from the solution. This may of course
+be different from the original map, then you have got a new puzzle which may
+even be more difficult than the original.
+
+I think the number of pushes needed to solve a given map is a good measure of
+how difficult it is to solve the map, so the program may generate really
+difficult maps if you give it the right start map.
+
+A nice thing about theese generated maps is that, even though you made the
+map yourself with the aid of the program, you may yourself find it very
+difficult to solve it, so you can make maps for yourself to solve.
+
